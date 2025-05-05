@@ -63,6 +63,16 @@ namespace pryFinal.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _5300_6_10 {
+            get {
+                object obj = ResourceManager.GetObject("5300_6_10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Contactos {
             get {
                 object obj = ResourceManager.GetObject("Contactos", resourceCulture);

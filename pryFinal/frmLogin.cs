@@ -20,9 +20,9 @@ namespace pryFinal
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            frmAddUser frmAddUser= new frmAddUser();
-            frmAddUser.Show();
-            this.Hide();
+            //frmAddUser frmAddUser = new frmAddUser();
+            //frmAddUser.Show();
+            //this.Hide();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -31,8 +31,6 @@ namespace pryFinal
             string clave = txtClave.Text;
 
             var usuarios = clsUserManager.CargarUsuarios();
-
-           
             var usuarioExistente = usuarios.FirstOrDefault(u => u.Usuario == usuario);
 
             if (usuarioExistente == null)
@@ -41,40 +39,42 @@ namespace pryFinal
                 return;
             }
 
-        
+           
             if (usuarioExistente.Bloqueado)
             {
-                lblMensaje.Text = "El usuario está bloqueado.";
+                lblMensaje.Text = "El usuario está bloqueado. Contactá al administrador.";
                 return;
             }
 
-         
+        
             if (usuarioExistente.Clave != clave)
             {
                 usuarioExistente.IntentosFallidos++;
 
+           
+                int intentosRestantes = 3 - usuarioExistente.IntentosFallidos;
+                lblMensaje.Text = $"Contraseña incorrecta. Te quedan {intentosRestantes} intentos.";
+
+             
                 if (usuarioExistente.IntentosFallidos >= 3)
                 {
                     usuarioExistente.Bloqueado = true;
                     lblMensaje.Text = "Usuario bloqueado por intentos fallidos.";
-                }
-                else
-                {
-                    lblMensaje.Text = "Contraseña incorrecta. Intentos fallidos: " + usuarioExistente.IntentosFallidos;
                 }
 
                 clsUserManager.GuardarUsuarios(usuarios);
                 return;
             }
 
-         
+        
             usuarioExistente.IntentosFallidos = 0;
             clsUserManager.GuardarUsuarios(usuarios);
 
-
+            
             frmMain frm = new frmMain();
             frm.Show();
-            this.Hide();  
+            this.Hide();
+
         }
 
         private void lblRegistrarse_Click(object sender, EventArgs e)
@@ -82,9 +82,73 @@ namespace pryFinal
             new frmAddUser().ShowDialog();
         }
 
-        private void panelPrinc_Paint(object sender, PaintEventArgs e)
-        {
 
+        private void lblRecuperarClave_Click(object sender, EventArgs e)
+        {
+            string usuario = txtUsuario.Text.Trim();
+
+            if (string.IsNullOrEmpty(usuario))
+            {
+                MessageBox.Show("Por favor, ingresá tu nombre de usuario para recuperar la contraseña.");
+                return;
+            }
+
+            var usuarios = clsUserManager.CargarUsuarios();
+            var user = usuarios.FirstOrDefault(u => u.Usuario == usuario);
+
+            if (user == null)
+            {
+                MessageBox.Show("Usuario no encontrado.");
+                return;
+            }
+
+            if (user.Bloqueado)
+            {
+                MessageBox.Show("Este usuario está bloqueado. Contactá al administrador.");
+                return;
+            }
+
+            MessageBox.Show($"Tu contraseña es: {user.Clave}", "Recuperar contraseña", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void lblDesbloquear_Click(object sender, EventArgs e)
+        {
+            string usuario = txtUsuario.Text.Trim(); 
+
+            if (string.IsNullOrEmpty(usuario))
+            {
+                MessageBox.Show("Por favor, ingresá el nombre de usuario.");
+                return;
+            }
+
+            var usuarios = clsUserManager.CargarUsuarios();
+            var user = usuarios.FirstOrDefault(u => u.Usuario == usuario);
+
+            if (user == null)
+            {
+                MessageBox.Show("Usuario no encontrado.");
+                return;
+            }
+
+            if (!user.Bloqueado)
+            {
+                MessageBox.Show("El usuario no está bloqueado.");
+                return;
+            }
+
+          
+            user.Bloqueado = false;
+            user.IntentosFallidos = 0;  
+
+           
+            clsUserManager.GuardarUsuarios(usuarios);
+
+            
+            lblMensaje.Text = "Tu cuenta ha sido desbloqueada. Ahora podés iniciar sesión.";
+            lblDesbloquear.Text = "Cuenta desbloqueada";  
+
+            MessageBox.Show("El usuario ha sido desbloqueado.");
         }
     }
 }
+

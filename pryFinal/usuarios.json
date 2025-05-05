@@ -1,13 +1,13 @@
 ﻿[
     {
-        "Usuario": "juan123",
+        "Usuario": "usuario1",
         "Clave": "abc123",
         "IntentosFallidos": 0,
         "Bloqueado": false
     },
     {
         "Usuario": "maria",
-        "Clave": "pass456",
+        "Clave": "456",
         "IntentosFallidos": 0,
         "Bloqueado": false
     },

@@ -353,5 +353,10 @@ namespace pryFinal
 
             ValidarTodo();
         }
+
+        private void frmProductos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

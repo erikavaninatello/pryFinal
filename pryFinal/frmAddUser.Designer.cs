@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddUser));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.logo = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.principal = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.lblSaludo = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblMensaje = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtConfirmarClave = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnRegistrar = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtNuevoUsuario = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtNuevaClave = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblSaludo = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.logo = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.principal = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.principal)).BeginInit();
@@ -60,28 +60,16 @@
             this.guna2Panel1.Size = new System.Drawing.Size(251, 449);
             this.guna2Panel1.TabIndex = 0;
             // 
-            // logo
+            // lblSaludo
             // 
-            this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
-            this.logo.ImageRotate = 0F;
-            this.logo.Location = new System.Drawing.Point(72, 28);
-            this.logo.Name = "logo";
-            this.logo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.logo.Size = new System.Drawing.Size(74, 76);
-            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logo.TabIndex = 2;
-            this.logo.TabStop = false;
-            // 
-            // principal
-            // 
-            this.principal.Image = global::pryFinal.Properties.Resources.Fondo_principal;
-            this.principal.ImageRotate = 0F;
-            this.principal.Location = new System.Drawing.Point(238, 0);
-            this.principal.Name = "principal";
-            this.principal.Size = new System.Drawing.Size(452, 492);
-            this.principal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.principal.TabIndex = 2;
-            this.principal.TabStop = false;
+            this.lblSaludo.BackColor = System.Drawing.Color.Transparent;
+            this.lblSaludo.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaludo.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblSaludo.Location = new System.Drawing.Point(72, 100);
+            this.lblSaludo.Name = "lblSaludo";
+            this.lblSaludo.Size = new System.Drawing.Size(86, 23);
+            this.lblSaludo.TabIndex = 72;
+            this.lblSaludo.Text = "Hola, Astro";
             // 
             // lblMensaje
             // 
@@ -182,16 +170,28 @@
             this.txtNuevaClave.Size = new System.Drawing.Size(200, 36);
             this.txtNuevaClave.TabIndex = 13;
             // 
-            // lblSaludo
+            // logo
             // 
-            this.lblSaludo.BackColor = System.Drawing.Color.Transparent;
-            this.lblSaludo.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSaludo.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblSaludo.Location = new System.Drawing.Point(72, 100);
-            this.lblSaludo.Name = "lblSaludo";
-            this.lblSaludo.Size = new System.Drawing.Size(86, 23);
-            this.lblSaludo.TabIndex = 72;
-            this.lblSaludo.Text = "Hola, Astro";
+            this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
+            this.logo.ImageRotate = 0F;
+            this.logo.Location = new System.Drawing.Point(72, 28);
+            this.logo.Name = "logo";
+            this.logo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.logo.Size = new System.Drawing.Size(74, 76);
+            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logo.TabIndex = 2;
+            this.logo.TabStop = false;
+            // 
+            // principal
+            // 
+            this.principal.Image = global::pryFinal.Properties.Resources.Fondo_principal;
+            this.principal.ImageRotate = 0F;
+            this.principal.Location = new System.Drawing.Point(238, 0);
+            this.principal.Name = "principal";
+            this.principal.Size = new System.Drawing.Size(452, 492);
+            this.principal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.principal.TabIndex = 2;
+            this.principal.TabStop = false;
             // 
             // frmAddUser
             // 

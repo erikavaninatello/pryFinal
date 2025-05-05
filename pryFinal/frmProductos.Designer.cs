@@ -33,8 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelProductos = new Guna.UI2.WinForms.Guna2Panel();
-            this.logo = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lblSaludo = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.logo = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnAgregar = new Guna.UI2.WinForms.Guna2Button();
             this.btnBuscar = new Guna.UI2.WinForms.Guna2Button();
             this.btnModificar = new Guna.UI2.WinForms.Guna2Button();
@@ -62,6 +62,17 @@
             this.panelProductos.Size = new System.Drawing.Size(890, 100);
             this.panelProductos.TabIndex = 0;
             // 
+            // lblSaludo
+            // 
+            this.lblSaludo.BackColor = System.Drawing.Color.Transparent;
+            this.lblSaludo.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaludo.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblSaludo.Location = new System.Drawing.Point(115, 42);
+            this.lblSaludo.Name = "lblSaludo";
+            this.lblSaludo.Size = new System.Drawing.Size(86, 23);
+            this.lblSaludo.TabIndex = 74;
+            this.lblSaludo.Text = "Hola, Astro";
+            // 
             // logo
             // 
             this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
@@ -73,17 +84,6 @@
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 4;
             this.logo.TabStop = false;
-            // 
-            // lblSaludo
-            // 
-            this.lblSaludo.BackColor = System.Drawing.Color.Transparent;
-            this.lblSaludo.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSaludo.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblSaludo.Location = new System.Drawing.Point(115, 42);
-            this.lblSaludo.Name = "lblSaludo";
-            this.lblSaludo.Size = new System.Drawing.Size(86, 23);
-            this.lblSaludo.TabIndex = 74;
-            this.lblSaludo.Text = "Hola, Astro";
             // 
             // btnAgregar
             // 
@@ -358,7 +358,7 @@
             this.toolTip.AllowLinksHandling = true;
             this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
             // 
-            // formProductos
+            // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -376,8 +376,9 @@
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.panelProductos);
-            this.Name = "formProductos";
+            this.Name = "frmProductos";
             this.Text = "formProductos";
+            this.Load += new System.EventHandler(this.frmProductos_Load);
             this.panelProductos.ResumeLayout(false);
             this.panelProductos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
